@@ -6,7 +6,7 @@
 
 ###
 
-<p align="left">Back-end: API criada com TypeScript e  NodeJS  utilizando o framework Express para gerenciamento de rotas, a integração localmente foi feita com o banco de dados Mysql, porém para o deploy no serverles NeonDB, fora utilizada o banco de dados Postgresql. Para operações CRUD, contei com a ajuda  do ORM Prisma e como disse anteriormente a persistência de dados do deploy está ocorrendo nos serviços gratuitos da NeonDB. <br><br><br> <strong> 🌐 Link da API: </strong>  </p>
+<p align="left">Back-end: API criada com TypeScript, NodeJS  utilizando o framework Express para gerenciamento de rotas, a integração localmente foi feita com o banco de dados Mysql, porém para o deploy no serverles NeonDB, fora utilizada o banco de dados Postgresql. Para operações CRUD, contei com a ajuda  do ORM Prisma e como disse anteriormente a persistência de dados do deploy está ocorrendo nos serviços gratuitos da NeonDB. <br><br><br> <strong> 🌐 Link da API: </strong>  </p>
 
 ###
 
@@ -36,7 +36,7 @@
 
 ###
 
-<h3 align="left">Tecnologias utilizadas no back-end:<br>Typescript, NodeJS, Express, PostgreSQL, Mysql PrismaORM;</h3>
+<h3 align="left">Tecnologias utilizadas no back-end:<br>Typescript, NodeJS, Express, PostgreSQL, Mysql, Docker, PrismaORM;</h3>
 
 ###
 
