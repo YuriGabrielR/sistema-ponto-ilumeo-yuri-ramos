@@ -28,15 +28,16 @@
 <p align="left">Front-End: A aplicação foi feita com ReactJS, ChakraUI e Typescript, o design do sistema foi realizada a partir de uma releitura que fiz do protótipo disponibilizado <br><br> Link da releitura do figma: https://rebrand.ly/r2r3imn</p>
 
 ###
-<h3 align="left"> Visualização da página :</h3>
-
-<div align="center">
-....
-</div>
+<h2 align="left"> Visualização da página :</h2>
+<h3 align="left"> Tela de Login :</h3>
+<img width="800" height="400" src="https://github.com/user-attachments/assets/f95aaa4a-7d0e-4961-a9e5-5c6b598210e3"  />
+ <br><br>
+<h3 align="left"> Dashboard e lançamentos de horas :</h3>
+<img width="800" height="400" src="https://github.com/user-attachments/assets/0c920de8-db61-41c8-8eda-abce571fc0f8"  />
 
 ###
 
-<h3 align="left">Tecnologias utilizadas no back-end:<br>Typescript, NodeJS, Express, PostgreSQL, Mysql, Docker, PrismaORM;</h3>
+<h3 align="left">Tecnologias utilizadas no back-end:<br> Typescript, NodeJS, Express, PostgreSQL, Mysql, Docker, PrismaORM;</h3>
 
 ###
 
