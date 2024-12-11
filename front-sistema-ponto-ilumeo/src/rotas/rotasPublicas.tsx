@@ -11,3 +11,4 @@ export const rotasPublicas: RouteObject[] =[
     }
 
 ]
+
