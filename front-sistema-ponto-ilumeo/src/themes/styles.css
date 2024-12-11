@@ -11,3 +11,13 @@
   -webkit-text-size-adjust: 100%;
   font-family: 'Epilogue', sans-serif;
 }
+
+nav {
+  all: unset;
+  display: block;
+}
+
+li {
+  all: unset; 
+  list-style: none; 
+}
