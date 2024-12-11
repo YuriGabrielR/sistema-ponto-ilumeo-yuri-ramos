@@ -54,7 +54,7 @@
 
 ###
 
-<h3 align="left">Tecnologias utilizadas no front-end:<br>Typescript, React, Styled Components, Axios;</h3>
+<h3 align="left">Tecnologias utilizadas no front-end:<br>Typescript, React, ChakraUi, Axios, React Query</h3>
 
 ###
 
