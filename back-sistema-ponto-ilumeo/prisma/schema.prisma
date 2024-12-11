@@ -1,0 +1,32 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Funcionario {
+  id  Int @id @default(autoincrement())
+  codigo String @unique
+  nome String
+  turnos Turno[]
+
+  criadoEm DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+
+}
+
+model Turno {
+  id            Int      @id @default(autoincrement())
+  funcionarioId Int     
+  inicioTurno   DateTime 
+  fimTurno      DateTime? 
+
+  funcionario Funcionario @relation(fields: [funcionarioId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
