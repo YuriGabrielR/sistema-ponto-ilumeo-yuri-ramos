@@ -8,12 +8,11 @@ export class TurnoCriarService {
     try {
 
         const inicioTurnoFormatISO = data.inicioTurno ? new Date(data.inicioTurno) : undefined;
-      const fimTurnoFormatISO = data.fimTurno ? new Date(data.fimTurno) : undefined;
       
       const model = new TurnoModelDTO({
         funcionarioId: data.funcionarioId, 
         inicioTurno: inicioTurnoFormatISO, 
-        fimTurno: fimTurnoFormatISO
+        fimTurno: undefined
       })
     
       await this.repositorio.criarTurno(model)

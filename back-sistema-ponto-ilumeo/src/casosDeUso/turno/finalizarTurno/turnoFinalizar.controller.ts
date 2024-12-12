@@ -1,17 +1,15 @@
 import { Request, Response } from "express"
 import { handleControllerResponse } from "../../../utilitarios/handleControllerResponse"
-import { TurnoCriarService } from "./turnoCriar.service"
+import { TurnoFinalizarService } from "./turnoFinalizar.service"
 
-export class TurnoCriarController {
-  constructor(private readonly service: TurnoCriarService) {}
+export class TurnoFinalizarController {
+  constructor(private readonly service: TurnoFinalizarService) {}
   async execute(request: Request, response: Response) {
     
-    console.log(request.body.inicioTurno)
     try {
       const responseService = await this.service.execute({
-        funcionarioId: Number(request.body.funcionarioId), 
-        inicioTurno: request.body.inicioTurno || undefined, 
-        fimTurno: undefined
+        id: Number(request.body.funcionarioId),  
+        fimTurno: request.body.fimTurno || undefined
       })
 
       const controllerResponse = handleControllerResponse(responseService)
