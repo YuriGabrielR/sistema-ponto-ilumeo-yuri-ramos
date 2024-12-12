@@ -1,4 +1,4 @@
 export const rotasApp = {
     inicio: '/',
-    funcionarioPage: (idFuncionario: string) => `/funcionario/${idFuncionario}`,
+    funcionarioPage: (codigoFuncionario: string) => `/funcionario/${codigoFuncionario}`,
   }
