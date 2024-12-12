@@ -9,7 +9,6 @@ export class FuncionarioBuscarPorCodigoController {
   async execute(request: Request, response: Response) {
     try {
       const codigoFuncionario = request.params.codigo
-
       const responseService = await this.funcionarioBuscarPorId.execute({ codigoFuncionario })
       const controllerResponse = handleControllerResponse(responseService)
 
