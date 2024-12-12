@@ -22,7 +22,7 @@ model Funcionario {
 model Turno {
   id            Int      @id @default(autoincrement())
   funcionarioId Int     
-  inicioTurno   DateTime 
+  inicioTurno   DateTime?
   fimTurno      DateTime? 
 
   funcionario Funcionario @relation(fields: [funcionarioId], references: [id], onDelete: Cascade)
