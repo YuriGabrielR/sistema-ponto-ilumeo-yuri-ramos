@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { api, queryClient } from "../../../api/api";
+import { api } from "../../../api/api";
 import { IFuncionarioModelAtributos } from "../../../types/ModelAtributos";
 import { rotasApiFuncionario } from "../../../api/rotasApi/rotasApiFuncionario";
 
@@ -10,13 +10,7 @@ export const useFuncionarioBuscarPorCodigo = (params?: ServiceAtributos) => {
     enabled: !!params?.codigoFuncionario,
   });
 
-  const refetchData = async (newParams: ServiceAtributos) => {
-    return queryClient.refetchQueries({
-      queryKey: ['funcionario-buscar-codigo', JSON.stringify(newParams)]
-    });
-  }
-
-  return { data, refetch: refetchData };
+  return { data, refetch };
 }
 
 async function endPoint(params?: ServiceAtributos): Promise<IFuncionarioModelAtributos> {
