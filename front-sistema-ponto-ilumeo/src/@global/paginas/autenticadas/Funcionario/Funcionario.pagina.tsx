@@ -4,19 +4,17 @@ import { coresUi } from "../../../../themes/coresUi";
 import useHoraAtual from "../../../../utilitarios/useHoraAtual";
 import React from "react";
 import { MenuMobile } from "../../../componentes/MenuMobile";
+import { useFuncionarioBuscarPorCodigo } from "../../../hooks/API/funcionario/useFuncionarioBuscarPorCodigo";
+import { useParams } from "react-router-dom";
+import { formatDate, formatTime } from "../../../../utilitarios/formatData";
 
 export const Funcionario = () => {
   const horaAtual = useHoraAtual();
 
-  const mock = [
-    { data: '11/12/2023', horaInicial: '7h30min', horaFinal: '16h30min', total: '9h' },
-    { data: '12/12/2023', horaInicial: '8h00min', horaFinal: '17h00min', total: '9h' },
-    { data: '13/12/2023', horaInicial: '7h45min', horaFinal: '16h45min', total: '9h' },
-    { data: '14/12/2023', horaInicial: '8h15min', horaFinal: '17h15min', total: '9h' },
-    { data: '14/12/2023', horaInicial: '8h15min', horaFinal: '17h15min', total: '9h' },
-    { data: '14/12/2023', horaInicial: '8h15min', horaFinal: '17h15min', total: '9h' },
+  const {codigoFuncionario} = useParams()
 
-  ];
+
+  const {data} = useFuncionarioBuscarPorCodigo({codigoFuncionario: codigoFuncionario || ''})
 
   return (
     <Container display={"flex"} w="100%" h="auto" overflow={'hidden'} justifyContent={{base:"center", lg:"normal"}} position={'relative'}>
@@ -42,7 +40,7 @@ export const Funcionario = () => {
         <Text fontSize={{base:"18px", md:"24px"}} fontWeight={"500"} display={"flex"} w={"100%"} marginTop={{base:'30px', md:'10px'}} flexDirection={{base:"column", md:"row"}}>
           
           <Text fontWeight={"700"} color={coresUi.secundaria}>
-          Olá,&nbsp;Yuri!
+          Olá,&nbsp;{data?.nome}&nbsp;
           </Text>
           &nbsp;Seja bem-vindo(a) novamente!
         </Text>
@@ -62,8 +60,8 @@ export const Funcionario = () => {
             justifyContent={"space-between"}
           >
             <Flex w="100%" flexDir={'column'} fontSize={{base:"14px", md:"16px"}}>
-                <Text fontWeight={"400"}> Código do usuário: <strong>432XDSASA </strong></Text>
-                <Text fontWeight={"600"}> User: Yuri Ramos </Text>
+                <Text fontWeight={"400"}> Código do usuário: <strong>{data?.codigo} </strong></Text>
+                <Text fontWeight={"600"}> User: {data?.nome}</Text>
                 <Text fontWeight={"600"}> Agora são:&nbsp; {horaAtual} </Text>
             </Flex>
 
@@ -75,7 +73,7 @@ export const Funcionario = () => {
           </Button>
 
           <Box display="flex" flexDir={"column"} w="100%" height={'450px'} alignItems={'center'} gap={'5px'} overflowY="auto">
-          {mock.length === 0 ? (
+          {data === undefined ? (
             <Flex w={'100%'} h="100%" justifyContent={'center'} alignItems={'center'}>
               <Image src="/semDados.svg" height={'250px'} />
             </Flex>
@@ -94,12 +92,12 @@ export const Funcionario = () => {
               <Text fontWeight={"600"} textAlign="center">Fim</Text>
               <Text fontWeight={"600"} textAlign="center">Total</Text>
 
-              {mock.map((item, index) => (
+              {data.turnos.map((item, index) => (
                 <React.Fragment key={index}>
-                  <Text textAlign="center">{item.data}</Text>
-                  <Text textAlign="center">{item.horaInicial}</Text>
-                  <Text textAlign="center">{item.horaFinal}</Text>
-                  <Text textAlign="center">{item.total}</Text>
+                  <Text textAlign="center">{formatDate(item.inicioTurno)}</Text>
+                  <Text textAlign="center">{formatTime(item.inicioTurno)}</Text>
+                  <Text textAlign="center">{formatTime(item.fimTurno)}</Text>
+                  <Text textAlign="center">7h30min</Text>
                 </React.Fragment>
               ))}
             </Grid>
