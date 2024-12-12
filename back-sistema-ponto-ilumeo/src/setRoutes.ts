@@ -3,5 +3,5 @@ import { setRoutesFuncionario } from "./casosDeUso/funcionario/setRoutesFunciona
 
 
 export function setRoutes(baseUrlPath: string, expressApp: Application) {
-setRoutesFuncionario(baseUrlPath, expressApp)
+ setRoutesFuncionario(baseUrlPath, expressApp)
 }
