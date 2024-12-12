@@ -1,14 +1,9 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
 import { rotasApp } from "../../rotas/rotasApp";
 import { ClockUser, User } from "@phosphor-icons/react";
 
 
 export const Nav = () => {
-    const { idFuncionario } = useParams()
-
-    console.log(idFuncionario)
-
 
     const isAtivo = (rota: string) => {
         const regexPath = /^\/[^/]+/

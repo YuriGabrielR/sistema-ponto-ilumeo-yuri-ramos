@@ -6,7 +6,7 @@ import { Funcionario } from "../@global/paginas/autenticadas/Funcionario/Funcion
 export const rotasAutenticadas: RouteObject[] =[
 
     {
-        path: rotasApp.funcionarioPage(':idFuncionario'), 
+        path: rotasApp.funcionarioPage(':codigoFuncionario'), 
         element: <Funcionario/>
     }
 ]
