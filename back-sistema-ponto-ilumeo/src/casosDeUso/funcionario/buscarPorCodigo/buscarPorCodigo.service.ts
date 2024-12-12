@@ -9,7 +9,6 @@ export class FuncionarioBuscarPorCodigoService {
   async execute(data: ServiceAtributos): ServiceResponse {
     try {
       const { codigoFuncionario } = data
-      console.log(codigoFuncionario)
 
       if (!codigoFuncionario) throw new ErrosCustomizados('Atributo Ausente')
 
