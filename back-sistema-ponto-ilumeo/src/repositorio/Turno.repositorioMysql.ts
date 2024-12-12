@@ -1,5 +1,4 @@
 import { prisma } from "../configurações/databases/mysql/iniciarConexãoMysql";
-import { FuncionarioModelDTO, IFuncionarioModelAtributos } from "../models/FuncionarioModel";
 import { TurnoModelDTO } from "../models/TurnoModel";
 
 export class TurnoRepositorioMysql {
@@ -19,5 +18,34 @@ export class TurnoRepositorioMysql {
           console.log('TurnoRepositorioMySql criarTurno')
           throw erro
         }
+      }
+
+      async buscarTurnoPorId(turnoId: number): Promise<TurnoModelDTO | null>{
+        const result = await prisma.turno.findUnique({
+          where: { id: turnoId }  
+        });
+
+        return new TurnoModelDTO({
+          id: result?.id, 
+          inicioTurno: result?.inicioTurno || undefined,
+          fimTurno: result?.fimTurno || undefined,
+          funcionarioId: result?.funcionarioId,
+        });
+      }
+
+      async finalizarTurno(data: { turnoId: number, fimTurno: Date }): Promise<TurnoModelDTO> {
+        const { turnoId, fimTurno } = data;
+      
+        const turnoAtualizado = await prisma.turno.update({
+          where: { id: turnoId },  
+          data: { fimTurno }
+        });
+      
+        return new TurnoModelDTO({
+          id: turnoAtualizado.id,
+          inicioTurno: turnoAtualizado.inicioTurno || undefined,
+          fimTurno: turnoAtualizado.fimTurno || undefined,
+          funcionarioId: turnoAtualizado.funcionarioId,
+        });
       }
 }

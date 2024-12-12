@@ -11,7 +11,7 @@ export class TurnoFinalizarController {
         id: Number(request.body.funcionarioId),  
         fimTurno: request.body.fimTurno || undefined
       })
-
+ 
       const controllerResponse = handleControllerResponse(responseService)
       return response.status(controllerResponse.status).json(controllerResponse.response)
     } catch (erro) {
